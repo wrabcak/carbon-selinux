@@ -68,3 +68,10 @@ allow carbon_t xinuexpansion4_port_t:tcp_socket name_bind;
 corenet_tcp_bind_generic_node(carbon_t)
 
 libs_exec_ldconfig(carbon_t)
+
+optional_policy(`
+	carbon_stub_httpd()
+	list_dirs_pattern(httpd_t, carbon_var_lib_t, carbon_var_lib_t)
+	read_files_pattern(httpd_t, carbon_var_lib_t, carbon_var_lib_t)
+	corenet_tcp_bind_amanda_port(httpd_t)
+')
