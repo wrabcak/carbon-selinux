@@ -54,6 +54,7 @@ manage_files_pattern(carbon_t, carbon_var_run_t, carbon_var_run_t)
 files_pid_filetrans(carbon_t, carbon_var_run_t, { file })
 
 kernel_read_system_state(carbon_t)
+kernel_read_network_state(carbon_t)
 
 auth_read_passwd(carbon_t)
 
