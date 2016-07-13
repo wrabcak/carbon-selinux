@@ -53,3 +53,18 @@ interface(`carbon_stub_httpd',`
 	gen_require(`
 		type httpd_t;
 	')
+
+########################################
+## <summary>
+##	lib_t stub interface.  No access allowed.
+## </summary>
+## <param name="domain" unused="true">
+##	<summary>
+##	Domain allowed access
+##	</summary>
+## </param>
+#
+interface(`carbon_stub_lib',`
+	gen_require(`
+		type lib_t;
+	')

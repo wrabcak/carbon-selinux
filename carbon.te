@@ -74,7 +74,12 @@ libs_exec_ldconfig(carbon_t)
 
 optional_policy(`
 	carbon_stub_httpd()
-	list_dirs_pattern(httpd_t, carbon_var_lib_t, carbon_var_lib_t)
-	read_files_pattern(httpd_t, carbon_var_lib_t, carbon_var_lib_t)
+	manage_dirs_pattern(httpd_t, carbon_var_lib_t, carbon_var_lib_t)
+	manage_files_pattern(httpd_t, carbon_var_lib_t, carbon_var_lib_t)
 	corenet_tcp_bind_amanda_port(httpd_t)
+')
+
+optional_policy(`
+	carbon_stub_lib()
+	dontaudit carbon_t lib_t:dir add_name;
 ')
