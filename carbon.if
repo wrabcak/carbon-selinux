@@ -53,6 +53,7 @@ interface(`carbon_stub_httpd',`
 	gen_require(`
 		type httpd_t;
 	')
+')
 
 ########################################
 ## <summary>
@@ -68,3 +69,5 @@ interface(`carbon_stub_lib',`
 	gen_require(`
 		type lib_t;
 	')
+')
+
