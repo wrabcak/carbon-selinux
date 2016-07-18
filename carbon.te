@@ -21,15 +21,6 @@ files_pid_file(carbon_var_run_t)
 type carbon_unit_file_t;
 systemd_unit_file(carbon_unit_file_t)
 
-type mailbox_port_t;
-corenet_port(mailbox_port_t)
-
-type xinuexpansion3_port_t;
-corenet_port(xinuexpansion3_port_t)
-
-type xinuexpansion4_port_t;
-corenet_port(xinuexpansion4_port_t)
-
 permissive carbon_t;
 
 ########################################
@@ -62,11 +53,10 @@ corecmd_exec_shell(carbon_t)
 
 corenet_tcp_bind_afs_pt_port(carbon_t)
 corenet_tcp_bind_lmtp_port(carbon_t)
-
-allow carbon_t mailbox_port_t:tcp_socket name_bind;
-allow carbon_t mailbox_port_t:tcp_socket name_connect;
-allow carbon_t xinuexpansion3_port_t:tcp_socket name_bind;
-allow carbon_t xinuexpansion4_port_t:tcp_socket name_bind;
+corenet_tcp_bind_mailbox_port(carbon_t)
+corenet_tcp_connect_mailbox_port(carbon_t)
+corenet_tcp_bind_xinuexpansion3_port(carbon_t)
+corenet_tcp_bind_xinuexpansion4_port(carbon_t)
 
 corenet_tcp_bind_generic_node(carbon_t)
 
